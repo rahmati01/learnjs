@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first</title>
+</head>
+
+<body>
+    <script>
+        var stdCount;
+        var stdAvg = [];
+        var temp;
+        var total = 0;
+        var classAvg;
+
+        // read the count of student
+        stdCount = prompt("لطفا تعداد دانشجویان را وارد کنید:");
+        while (stdCount > 11 || stdCount < 1) {
+            stdCount = prompt("عدد وارد شده بیشتر از 10  یا کوچکتر از یک است، لطفا عدد صحیح را دوباره وارد کنید:");
+        }
+        console.log("count of student is: " + stdCount);
+        console.log("**********************************");
+
+        // read the average of student
+        for (let i = 1; i <= stdCount; i++) {
+            stdAvg[i - 1] = prompt("لطفا معدل دانشجوی " + i + " را وارد کنید");
+            while (stdAvg[i + 1] < 0 || stdAvg > 20) {
+                stdAvg[i - 1] = prompt(" عدد صحیح نیست لطفا معدل دانشجوی " + i + " را دوباره وارد کنید");
+            }
+        }
+
+
+        // print student avarage and status
+        for (let i = 0; i < stdCount; i++) {
+            if (stdAvg[i] < 12) {
+                temp = "(mashroot)";
+            }
+            else {
+                temp = "";
+            }
+            console.log("std" + (i + 1) + "  average is: " + stdAvg[i] + "  " + temp);
+
+        }
+
+
+        //average of class
+
+        for (i = 0; i < stdCount; i++) {
+            total += Number(stdAvg[i]);
+        }
+        classAvg = total / stdCount;
+        
+        console.log("**********************************");
+        console.log("the total scors of class:  " + total);
+        console.log("the avarage of class is:  " + classAvg);
+        console.log("**********************************");
+
+
+
+    </script>
+</body>
+
+</html>
